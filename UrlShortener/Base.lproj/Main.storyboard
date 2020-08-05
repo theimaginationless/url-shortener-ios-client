@@ -1,24 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhB-NK-Lnh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--URL Shortener-->
+        <scene sceneID="OIk-mR-PTI">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="09r-Db-SrR" customClass="URLTableViewController" customModule="UrlShortener" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KWE-n5-vP0" customClass="URLTableView" customModule="UrlShortener" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="69" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="69"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lfP-GI-XcA" id="jay-3s-6AF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-OW-fqN">
+                                            <rect key="frame" x="20" y="8" width="103.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shortener URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mq-qn-Q2X">
+                                            <rect key="frame" x="20" y="40" width="113" height="21"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                            </accessibility>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4Mq-qn-Q2X" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NQl-OW-fqN" secondAttribute="bottom" constant="8" id="OCd-Kt-IVY"/>
+                                        <constraint firstAttribute="bottom" secondItem="4Mq-qn-Q2X" secondAttribute="bottom" constant="8" id="d22-FZ-9HB"/>
+                                        <constraint firstItem="4Mq-qn-Q2X" firstAttribute="leading" secondItem="jay-3s-6AF" secondAttribute="leading" constant="20" id="kG3-Kn-e9D"/>
+                                        <constraint firstItem="NQl-OW-fqN" firstAttribute="leading" secondItem="jay-3s-6AF" secondAttribute="leading" constant="20" id="thr-qr-hIg"/>
+                                        <constraint firstItem="NQl-OW-fqN" firstAttribute="top" secondItem="jay-3s-6AF" secondAttribute="top" constant="8" id="ufc-dP-dfl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="shortUrlLabel" destination="4Mq-qn-Q2X" id="YeF-hy-PRN"/>
+                                    <outlet property="sourceUrlLabel" destination="NQl-OW-fqN" id="deA-9c-3Ep"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="09r-Db-SrR" id="0iP-Tm-T9v"/>
+                            <outlet property="delegate" destination="09r-Db-SrR" id="hUM-VY-SzH"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="URL Shortener" id="jDE-cq-eAV">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="99Y-M7-Aow">
+                            <connections>
+                                <segue destination="gTh-1w-u4c" kind="showDetail" identifier="CreateUrl" id="Ihr-gW-Wim"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="URLTableView" destination="KWE-n5-vP0" id="3O3-Wg-wNA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmg-2u-Ttv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--URL Short Create View Controller-->
+        <scene sceneID="UZE-Vq-1IL">
+            <objects>
+                <viewController id="gTh-1w-u4c" customClass="URLShortCreateViewController" customModule="UrlShortener" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="upy-Jg-qfv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qkr-As-hdS">
+                                <rect key="frame" x="8" y="8" width="398" height="150"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-BF-Mdh">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="108"/>
+                                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <items>
+                                            <navigationItem title="Create new URL" largeTitleDisplayMode="always" id="lT4-TJ-w1N">
+                                                <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="FsR-S4-gAS"/>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qag-Lc-c7n">
+                                        <rect key="frame" x="0.0" y="116" width="398" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-Ek-OvJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="32.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akO-Ih-MlO">
+                                                <rect key="frame" x="40.5" y="0.0" width="357.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="url"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tl9-BF-Mdh" firstAttribute="leading" secondItem="Qkr-As-hdS" secondAttribute="leading" id="Oen-U2-OfY"/>
+                                    <constraint firstItem="Tl9-BF-Mdh" firstAttribute="top" secondItem="Qkr-As-hdS" secondAttribute="top" id="ZLg-CT-Eg4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tl9-BF-Mdh" secondAttribute="trailing" id="vis-48-Xxj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Qkr-As-hdS" firstAttribute="top" secondItem="i7h-vZ-1BG" secondAttribute="top" constant="8" id="WYm-Of-JIn"/>
+                            <constraint firstItem="i7h-vZ-1BG" firstAttribute="trailing" secondItem="Qkr-As-hdS" secondAttribute="trailing" constant="8" id="xTt-TE-pl9"/>
+                            <constraint firstItem="Qkr-As-hdS" firstAttribute="leading" secondItem="i7h-vZ-1BG" secondAttribute="leading" constant="8" id="yKF-jc-gnb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i7h-vZ-1BG"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="URLTextField" destination="akO-Ih-MlO" id="oRA-Xr-mBp"/>
+                        <outlet property="navigationBar" destination="Tl9-BF-Mdh" id="SDi-Rq-8fK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghZ-Fw-41S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014.4927536231885" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8MN-4E-vqO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vhB-NK-Lnh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5cA-VG-tdL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="odi-MB-CJK">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="09r-Db-SrR" kind="relationship" relationship="rootViewController" id="CEl-5B-cIn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tZZ-8n-uKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
