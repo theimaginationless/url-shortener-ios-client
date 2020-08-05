@@ -16,11 +16,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="69" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="69"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lfP-GI-XcA" id="jay-3s-6AF">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-OW-fqN">
@@ -30,7 +30,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shortener URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mq-qn-Q2X">
-                                            <rect key="frame" x="20" y="40" width="113" height="21"/>
+                                            <rect key="frame" x="20" y="41" width="113" height="21"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" link="YES" staticText="YES"/>
                                             </accessibility>

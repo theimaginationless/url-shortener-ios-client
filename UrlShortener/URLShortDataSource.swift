@@ -26,6 +26,10 @@ class URLShortDataSource: NSObject, UITableViewDataSource {
             cell.sourceUrlLabel.text = shortUrl.sourceUrl.absoluteString
             cell.shortUrlLabel.text = shortUrl.shortenedUrl.absoluteString
         }
+        else {
+            cell.sourceUrlLabel.text = " "
+            cell.shortUrlLabel.text = " "
+        }
         
         return cell
     }
