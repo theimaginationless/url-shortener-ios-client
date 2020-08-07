@@ -11,19 +11,21 @@ import UIKit
 class URLShortItem: NSObject {
     var sourceUrl: URL
     var shortenedUrl: URL
+    var title: String
     var id: String
     
-    init(source: URL, shortened: URL) {
+    init(title: String, source: URL, shortened: URL) {
+        self.title = title
         self.sourceUrl = source
         self.shortenedUrl = shortened
         self.id = UUID().uuidString
     }
     
-    convenience init?(sourceUrlString: String, shortenedUrlString: String) {
+    convenience init?(title: String, sourceUrlString: String, shortenedUrlString: String) {
         if
             let sourceUrl = URL(string: sourceUrlString),
             let shortenedUrl = URL(string: shortenedUrlString) {
-            self.init(source: sourceUrl, shortened: shortenedUrl)
+            self.init(title: title, source: sourceUrl, shortened: shortenedUrl)
         }
         else {
             return nil

@@ -21,6 +21,7 @@ extension UIBarButtonItem {
 
 class URLShortCreateViewController: UIViewController {
     @IBOutlet var navigationBar: UINavigationBar!
+    @IBOutlet var titleUrlTextField: UITextField!
     @IBOutlet var URLTextField: UITextField!
     var doneBarButtonItem: UIBarButtonItem!
     
@@ -37,8 +38,9 @@ class URLShortCreateViewController: UIViewController {
     
     @objc func doneProcessing(action: UIBarButtonItem) {
         let urlString = URLTextField.text!
+        let titleUrlString = titleUrlTextField.text!
         
-        if urlString.isEmpty {
+        if urlString.isEmpty || titleUrlString.isEmpty {
             print("Title or URL is empty!")
             return
         }
@@ -50,10 +52,11 @@ class URLShortCreateViewController: UIViewController {
                 self.doneBarButtonItem.isEnabled = false
                 switch urlResult {
                 case let .Success(urlShortItem):
+                    let item = urlShortItem
+                    item.title = titleUrlString
                     self.URLDataSource.urlStore.append(urlShortItem)
                     self.reloadDataDelegate.reloadDataNotify()
                     self.dismiss(animated: true, completion: nil)
-                    print("Success!")
                 case let .Failure(error):
                     print("Error: \(error)")
                 }

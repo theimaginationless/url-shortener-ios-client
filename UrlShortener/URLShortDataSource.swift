@@ -23,11 +23,13 @@ class URLShortDataSource: NSObject, UITableViewDataSource {
         
         if !(searchUrlStore.isEmpty && inSearching) {
             print(inSearching)
-            cell.sourceUrlLabel.text = shortUrl.sourceUrl.absoluteString
+//            cell.sourceUrlLabel.text = shortUrl.sourceUrl.absoluteString
+            cell.titleUrlLabel.text = shortUrl.title
             cell.shortUrlLabel.text = shortUrl.shortenedUrl.absoluteString
         }
         else {
-            cell.sourceUrlLabel.text = " "
+//            cell.sourceUrlLabel.text = " "
+            cell.titleUrlLabel.text = " "
             cell.shortUrlLabel.text = " "
         }
         

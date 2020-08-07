@@ -9,6 +9,7 @@
 import UIKit
 
 class URLShortTableViewCell: UITableViewCell {
+    @IBOutlet var titleUrlLabel: UILabel!
     @IBOutlet var sourceUrlLabel: UILabel!
     @IBOutlet var shortUrlLabel: UILabel!
 }

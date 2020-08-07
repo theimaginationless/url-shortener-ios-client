@@ -16,21 +16,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lfP-GI-XcA" id="jay-3s-6AF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-OW-fqN">
-                                            <rect key="frame" x="20" y="8" width="103.5" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-OW-fqN">
+                                            <rect key="frame" x="20" y="8" width="386" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shortener URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mq-qn-Q2X">
-                                            <rect key="frame" x="20" y="41" width="113" height="21"/>
+                                            <rect key="frame" x="20" y="41" width="386" height="21"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" link="YES" staticText="YES"/>
                                             </accessibility>
@@ -41,6 +41,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="4Mq-qn-Q2X" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NQl-OW-fqN" secondAttribute="bottom" constant="8" id="OCd-Kt-IVY"/>
+                                        <constraint firstAttribute="trailing" secondItem="NQl-OW-fqN" secondAttribute="trailing" constant="8" id="OFe-zf-ZXA"/>
+                                        <constraint firstAttribute="trailing" secondItem="4Mq-qn-Q2X" secondAttribute="trailing" constant="8" id="aKv-Xw-gWQ"/>
                                         <constraint firstAttribute="bottom" secondItem="4Mq-qn-Q2X" secondAttribute="bottom" constant="8" id="d22-FZ-9HB"/>
                                         <constraint firstItem="4Mq-qn-Q2X" firstAttribute="leading" secondItem="jay-3s-6AF" secondAttribute="leading" constant="20" id="kG3-Kn-e9D"/>
                                         <constraint firstItem="NQl-OW-fqN" firstAttribute="leading" secondItem="jay-3s-6AF" secondAttribute="leading" constant="20" id="thr-qr-hIg"/>
@@ -49,7 +51,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="shortUrlLabel" destination="4Mq-qn-Q2X" id="YeF-hy-PRN"/>
-                                    <outlet property="sourceUrlLabel" destination="NQl-OW-fqN" id="deA-9c-3Ep"/>
+                                    <outlet property="titleUrlLabel" destination="NQl-OW-fqN" id="q0K-lZ-ejS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -84,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qkr-As-hdS">
-                                <rect key="frame" x="8" y="8" width="398" height="150"/>
+                                <rect key="frame" x="8" y="8" width="398" height="192"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-BF-Mdh">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="108"/>
@@ -95,26 +97,46 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qag-Lc-c7n">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7VY-aW-lWJ">
                                         <rect key="frame" x="0.0" y="116" width="398" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-Ek-OvJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="32.5" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfo-s5-f68">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akO-Ih-MlO">
-                                                <rect key="frame" x="40.5" y="0.0" width="357.5" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Very looooong URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DK6-H6-tPG">
+                                                <rect key="frame" x="53" y="0.0" width="345" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" textContentType="url"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qag-Lc-c7n">
+                                        <rect key="frame" x="0.0" y="158" width="398" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-Ek-OvJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akO-Ih-MlO">
+                                                <rect key="frame" x="53" y="0.0" width="345" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" textContentType="url"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="zCW-Ek-OvJ" firstAttribute="trailing" secondItem="Gfo-s5-f68" secondAttribute="trailing" id="D8W-30-m92"/>
                                     <constraint firstItem="Tl9-BF-Mdh" firstAttribute="leading" secondItem="Qkr-As-hdS" secondAttribute="leading" id="Oen-U2-OfY"/>
                                     <constraint firstItem="Tl9-BF-Mdh" firstAttribute="top" secondItem="Qkr-As-hdS" secondAttribute="top" id="ZLg-CT-Eg4"/>
+                                    <constraint firstItem="akO-Ih-MlO" firstAttribute="trailing" secondItem="DK6-H6-tPG" secondAttribute="trailing" id="oWZ-yS-ekr"/>
+                                    <constraint firstItem="zCW-Ek-OvJ" firstAttribute="leading" secondItem="Gfo-s5-f68" secondAttribute="leading" id="q5S-6M-uqK"/>
+                                    <constraint firstItem="akO-Ih-MlO" firstAttribute="leading" secondItem="DK6-H6-tPG" secondAttribute="leading" id="qpy-0g-WUv"/>
                                     <constraint firstAttribute="trailing" secondItem="Tl9-BF-Mdh" secondAttribute="trailing" id="vis-48-Xxj"/>
                                 </constraints>
                             </stackView>
@@ -131,6 +153,7 @@
                     <connections>
                         <outlet property="URLTextField" destination="akO-Ih-MlO" id="oRA-Xr-mBp"/>
                         <outlet property="navigationBar" destination="Tl9-BF-Mdh" id="SDi-Rq-8fK"/>
+                        <outlet property="titleUrlTextField" destination="DK6-H6-tPG" id="f3q-Av-fkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghZ-Fw-41S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -140,8 +163,9 @@
         <!--Navigation Controller-->
         <scene sceneID="8MN-4E-vqO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vhB-NK-Lnh" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="vhB-NK-Lnh" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5cA-VG-tdL">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>

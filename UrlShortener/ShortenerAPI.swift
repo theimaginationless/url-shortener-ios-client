@@ -45,7 +45,7 @@ struct ShortenerAPI {
                 return nil
         }
         
-        return URLShortItem(sourceUrlString: sourceUrl, shortenedUrlString: shortenedUrl)
+        return URLShortItem(title: "", sourceUrlString: sourceUrl, shortenedUrlString: shortenedUrl)
     }
     
     static func URLFromJSON(data: Data) -> URLResult {
