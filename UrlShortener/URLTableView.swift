@@ -10,7 +10,8 @@ import UIKit
 
 class URLTableView: UITableView {
     var urlDataSource: URLShortDataSource!
-    var shortUrlRowForCopy: IndexPath?
+    var shortUrlIndexPathForCopy: IndexPath?
+    var selectedUrlShortItem: URLShortItem!
     override var canBecomeFirstResponder: Bool {return true}
     
     required init?(coder: NSCoder) {
@@ -27,8 +28,8 @@ class URLTableView: UITableView {
         case .began:
             self.becomeFirstResponder()
             let location = gestureRecognizer.location(in: self)
-            if let row = self.indexPathForRow(at: location) {
-                shortUrlRowForCopy = row
+            if let indexPath = self.indexPathForRow(at: location) {
+                shortUrlIndexPathForCopy = indexPath
                 let menu = UIMenuController.shared
                 menu.menuItems = [UIMenuItem(title: NSLocalizedString("Copy", comment: "Copy short URL"), action: #selector(self.copyShortUrl(sender:)))]
                 menu.showMenu(from: self, rect: CGRect(x: location.x, y: location.y - 16, width: 4, height: 2))
@@ -39,22 +40,53 @@ class URLTableView: UITableView {
     }
 
     @objc func copyShortUrl(sender: UIMenuItem) {
-        let pasteBoard = UIPasteboard.general
-        if let row = shortUrlRowForCopy, let cell = self.cellForRow(at: row) as? URLShortTableViewCell {
-            pasteBoard.string = cell.shortUrlLabel.text!
+        guard let urlShortItem = findUrlShortItemBy(indexPath: shortUrlIndexPathForCopy) else {
+            return
         }
+        
+        let pasteBoard = UIPasteboard.general
+        pasteBoard.url = urlShortItem.shortenedUrl
         
         hideMenu()
     }
     
     @objc func tap(gestureRecognizer: UIGestureRecognizer) {
-        hideMenu()
+        if !hideMenu() {
+            let location = gestureRecognizer.location(in: self)
+            guard let indexPath = self.indexPathForRow(at: location) else {
+                return
+            }
+        
+            openUrlFrom(indexPath: indexPath)
+        }
     }
     
-    func hideMenu() {
+    @discardableResult func hideMenu() -> Bool {
         let menu = UIMenuController.shared
-        if menu.isMenuVisible {
+        let isVisible = menu.isMenuVisible
+        if isVisible {
             menu.hideMenu(from: self)
+        }
+        
+        return isVisible
+    }
+    
+    func findUrlShortItemBy(indexPath: IndexPath?) -> URLShortItem? {
+        guard let urlIndexPath = indexPath else {
+            return nil
+        }
+        
+        return self.urlDataSource.urlShortItem(at: urlIndexPath)
+    }
+    
+    func openUrlFrom(indexPath: IndexPath) {
+        guard let urlShortItem = findUrlShortItemBy(indexPath: indexPath) else {
+            return
+        }
+        
+        let url = urlShortItem.shortenedUrl
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }

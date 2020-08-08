@@ -12,6 +12,9 @@
 		EB7F8B9124DAC1B70087A3C8 /* ShortenerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F8B9024DAC1B70087A3C8 /* ShortenerAPI.swift */; };
 		EB7F8B9324DAEC7D0087A3C8 /* URLShortCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F8B9224DAEC7D0087A3C8 /* URLShortCreateViewController.swift */; };
 		EB7F8B9524DB02E20087A3C8 /* URLShortenerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F8B9424DB02E20087A3C8 /* URLShortenerStore.swift */; };
+		EBEE672224DDA9A0009B7003 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EBEE672124DDA9A0009B7003 /* Settings.bundle */; };
+		EBEE672424DDABC7009B7003 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE672324DDABC7009B7003 /* SettingsBundleHelper.swift */; };
+		EBEE672624DE57B2009B7003 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEE672524DE57B2009B7003 /* Launch Screen.storyboard */; };
 		EBFF792F24D9CF6700423642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF792E24D9CF6700423642 /* AppDelegate.swift */; };
 		EBFF793124D9CF6700423642 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF793024D9CF6700423642 /* SceneDelegate.swift */; };
 		EBFF793624D9CF6700423642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFF793424D9CF6700423642 /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 		EB7F8B9024DAC1B70087A3C8 /* ShortenerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenerAPI.swift; sourceTree = "<group>"; };
 		EB7F8B9224DAEC7D0087A3C8 /* URLShortCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortCreateViewController.swift; sourceTree = "<group>"; };
 		EB7F8B9424DB02E20087A3C8 /* URLShortenerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortenerStore.swift; sourceTree = "<group>"; };
+		EBEE672124DDA9A0009B7003 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		EBEE672324DDABC7009B7003 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		EBEE672524DE57B2009B7003 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EBFF792B24D9CF6700423642 /* UrlShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrlShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF792E24D9CF6700423642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFF793024D9CF6700423642 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,12 +81,15 @@
 				EBFF793424D9CF6700423642 /* Main.storyboard */,
 				EB7F8B9224DAEC7D0087A3C8 /* URLShortCreateViewController.swift */,
 				EBFF794224D9D00700423642 /* URLTableView.swift */,
+				EBEE672324DDABC7009B7003 /* SettingsBundleHelper.swift */,
+				EBEE672124DDA9A0009B7003 /* Settings.bundle */,
 				EBFF794424D9D01E00423642 /* URLTableViewController.swift */,
 				EB7F8B8C24D9D4320087A3C8 /* URLShortDataSource.swift */,
 				EBFF793724D9CF6E00423642 /* Assets.xcassets */,
 				EBFF793924D9CF6E00423642 /* LaunchScreen.storyboard */,
 				EBFF793C24D9CF6E00423642 /* Info.plist */,
 				EBFF794624D9D04C00423642 /* URLShortItem.swift */,
+				EBEE672524DE57B2009B7003 /* Launch Screen.storyboard */,
 				EB7F8B9024DAC1B70087A3C8 /* ShortenerAPI.swift */,
 				EB7F8B8E24D9D5560087A3C8 /* URLShortTableViewCell.swift */,
 				EB7F8B9424DB02E20087A3C8 /* URLShortenerStore.swift */,
@@ -146,8 +155,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEE672224DDA9A0009B7003 /* Settings.bundle in Resources */,
 				EBFF793B24D9CF6E00423642 /* LaunchScreen.storyboard in Resources */,
 				EBFF793824D9CF6E00423642 /* Assets.xcassets in Resources */,
+				EBEE672624DE57B2009B7003 /* Launch Screen.storyboard in Resources */,
 				EBFF793624D9CF6700423642 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +178,7 @@
 				EB7F8B8F24D9D5560087A3C8 /* URLShortTableViewCell.swift in Sources */,
 				EB7F8B9324DAEC7D0087A3C8 /* URLShortCreateViewController.swift in Sources */,
 				EB7F8B8D24D9D4320087A3C8 /* URLShortDataSource.swift in Sources */,
+				EBEE672424DDABC7009B7003 /* SettingsBundleHelper.swift in Sources */,
 				EBFF792F24D9CF6700423642 /* AppDelegate.swift in Sources */,
 				EBFF793124D9CF6700423642 /* SceneDelegate.swift in Sources */,
 			);

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="86U-MK-G9f">
+                                <rect key="frame" x="8" y="52" width="398" height="802"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e6V-ac-mjR">
+                                        <rect key="frame" x="100" y="0.5" width="198" height="800.5"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="thin"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="e6V-ac-mjR" firstAttribute="leading" secondItem="86U-MK-G9f" secondAttribute="leading" constant="100" id="9Dw-rV-jRn"/>
+                                    <constraint firstAttribute="trailing" secondItem="e6V-ac-mjR" secondAttribute="trailing" constant="100" id="hgs-eU-5Kb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="86U-MK-G9f" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="8" id="IY3-gM-SMZ"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="86U-MK-G9f" secondAttribute="trailing" constant="8" id="O5i-KF-6pT"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="86U-MK-G9f" secondAttribute="bottom" constant="8" id="Yal-dh-KZ8"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="86U-MK-G9f" secondAttribute="bottom" constant="8" id="ZHT-zF-NKA"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="86U-MK-G9f" secondAttribute="trailing" constant="8" id="yXd-ss-0R2"/>
+                            <constraint firstItem="86U-MK-G9f" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="8" id="yuO-Zu-nCF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="link.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

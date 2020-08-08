@@ -8,36 +8,53 @@
 
 import UIKit
 
-class URLShortDataSource: NSObject, UITableViewDataSource {
-    var urlStore = [URLShortItem]()
+class URLShortDataSource: NSObject, UITableViewDataSource {    
+    var dataStore: URLShortenerStore!
     var searchUrlStore = [URLShortItem]()
     var inSearching = false
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchUrlStore.isEmpty ? urlStore.count : searchUrlStore.count
+        return searchUrlStore.isEmpty && !inSearching ? dataStore.allUrls.count : searchUrlStore.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "URLShortTableViewCell", for: indexPath) as! URLShortTableViewCell
-        let shortUrl = searchUrlStore.isEmpty ? urlStore[indexPath.row] : searchUrlStore[indexPath.row]
+        let shortUrl = searchUrlStore.isEmpty ? dataStore.allUrls[indexPath.row] : searchUrlStore[indexPath.row]
         
         if !(searchUrlStore.isEmpty && inSearching) {
-            print(inSearching)
 //            cell.sourceUrlLabel.text = shortUrl.sourceUrl.absoluteString
             cell.titleUrlLabel.text = shortUrl.title
             cell.shortUrlLabel.text = shortUrl.shortenedUrl.absoluteString
-        }
-        else {
-//            cell.sourceUrlLabel.text = " "
-            cell.titleUrlLabel.text = " "
-            cell.shortUrlLabel.text = " "
         }
         
         return cell
     }
     
-    func resetFindedData() {
+    func resetFoundedData() {
         searchUrlStore.removeAll()
         inSearching = false
+    }
+    
+    /*
+     * Using for get URLShortItem from current context
+     */
+    func urlShortItem(at indexPath: IndexPath) -> URLShortItem {
+        let items = self.inSearching ? searchUrlStore : dataStore.allUrls
+        return items[indexPath.row]
+    }
+    
+    func remove(at indexPath: IndexPath) {
+        var sourceIndex: Int = indexPath.row
+        
+        if self.inSearching {
+            let searchItem = self.searchUrlStore[indexPath.row]
+            self.searchUrlStore.remove(at: indexPath.row)
+            
+            if let index = dataStore.allUrls.firstIndex(of: searchItem) {
+                sourceIndex = index
+            }
+        }
+        
+        dataStore.allUrls.remove(at: sourceIndex)
     }
 }

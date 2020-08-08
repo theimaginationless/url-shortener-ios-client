@@ -9,6 +9,14 @@
 import UIKit
 
 class URLShortenerStore {
+    let urlArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("URLShortenerStore.archive")
+    }()
+    
+    var allUrls = [URLShortItem]()
+    
     let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
@@ -43,5 +51,25 @@ class URLShortenerStore {
         }
         
         return ShortenerAPI.URLFromJSON(data: jsonData)
+    }
+    
+    init() {
+        do {
+            let data = try Data(contentsOf: urlArchiveURL)
+            allUrls = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [URLShortItem]
+        }
+        catch let error {
+            print("Error while loading saved urls data: \(error)")
+        }
+    }
+    
+    func saveChanges() {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: allUrls, requiringSecureCoding: true)
+            try data.write(to: urlArchiveURL)
+        }
+        catch let error {
+            print("Error while saving urls data: \(error)")
+        }
     }
 }

@@ -20,7 +20,7 @@ enum ShortenerError: Error {
 }
 
 struct ShortenerAPI {
-    private static let baseURLString = "http://theimless.me:8084/shortenUrl"
+    private static let baseURLString = UserDefaults.standard.string(forKey: SettingsKey.UrlApiEndpoint)!
     
     static func shortenerUrl(parameters: [String:String]?) -> URL? {
         guard var urlComponents = URLComponents(string: baseURLString) else {

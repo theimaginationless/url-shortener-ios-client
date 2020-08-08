@@ -54,7 +54,7 @@ class URLShortCreateViewController: UIViewController {
                 case let .Success(urlShortItem):
                     let item = urlShortItem
                     item.title = titleUrlString
-                    self.URLDataSource.urlStore.append(urlShortItem)
+                    self.shortenerStore.allUrls.append(urlShortItem)
                     self.reloadDataDelegate.reloadDataNotify()
                     self.dismiss(animated: true, completion: nil)
                 case let .Failure(error):
