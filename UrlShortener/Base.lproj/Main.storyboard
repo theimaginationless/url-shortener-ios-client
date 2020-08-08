@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="URLShortTableViewCell" rowHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-GI-XcA" customClass="URLShortTableViewCell" customModule="UrlShortener" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lfP-GI-XcA" id="jay-3s-6AF">
@@ -88,11 +88,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qkr-As-hdS">
                                 <rect key="frame" x="8" y="8" width="398" height="192"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-BF-Mdh">
+                                    <navigationBar contentMode="scaleToFill" translucent="NO" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-BF-Mdh">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="108"/>
-                                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <items>
                                             <navigationItem title="Create new URL" largeTitleDisplayMode="always" id="lT4-TJ-w1N">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="scR-IC-vZD"/>
                                                 <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="FsR-S4-gAS"/>
                                             </navigationItem>
                                         </items>
@@ -152,6 +153,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="URLTextField" destination="akO-Ih-MlO" id="oRA-Xr-mBp"/>
+                        <outlet property="cancelBarButtonItem" destination="scR-IC-vZD" id="tjP-ae-LEN"/>
+                        <outlet property="doneBarButtonItem" destination="FsR-S4-gAS" id="Rsx-cF-VKF"/>
                         <outlet property="navigationBar" destination="Tl9-BF-Mdh" id="SDi-Rq-8fK"/>
                         <outlet property="titleUrlTextField" destination="DK6-H6-tPG" id="f3q-Av-fkK"/>
                     </connections>

@@ -23,7 +23,8 @@ class URLShortCreateViewController: UIViewController {
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var titleUrlTextField: UITextField!
     @IBOutlet var URLTextField: UITextField!
-    var doneBarButtonItem: UIBarButtonItem!
+    @IBOutlet var doneBarButtonItem: UIBarButtonItem!
+    @IBOutlet var cancelBarButtonItem: UIBarButtonItem!
     
     var shortenerStore: URLShortenerStore!
     var URLDataSource: URLShortDataSource!
@@ -32,8 +33,8 @@ class URLShortCreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doneBarButtonItem = navigationBar.items?.first?.rightBarButtonItem!
         doneBarButtonItem.action = #selector(self.doneProcessing(action:))
+        cancelBarButtonItem.action = #selector(self.cancel(action:))
     }
     
     @objc func doneProcessing(action: UIBarButtonItem) {
@@ -63,5 +64,9 @@ class URLShortCreateViewController: UIViewController {
                 self.doneBarButtonItem.isEnabled = true
             }
         }
+    }
+    
+    @objc func cancel(action: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
