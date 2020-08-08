@@ -1,4 +1,4 @@
-# url-shortener-ios-client
+# iOS REST Client for URL Shortener service
 iOS REST client for url-shortener backend service (https://github.com/coarsehorse/url-shortener)
 
 # Video demo:
